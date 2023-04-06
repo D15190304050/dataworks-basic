@@ -1,6 +1,7 @@
 package stark.dataworks.fun;
 
 import org.junit.Test;
+import stark.dataworks.basic.fun.Properties;
 
 import java.io.FileInputStream;
 import java.io.IOException;

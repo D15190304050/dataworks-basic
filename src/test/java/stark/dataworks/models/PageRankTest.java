@@ -1,9 +1,10 @@
 package stark.dataworks.models;
 
-import stark.dataworks.mathematics.Matrix;
-import stark.dataworks.mathematics.Vector;
+import stark.dataworks.basic.mathematics.Matrix;
+import stark.dataworks.basic.mathematics.Vector;
 import org.junit.Before;
 import org.junit.Test;
+import stark.dataworks.basic.models.PageRank;
 
 public class PageRankTest
 {
