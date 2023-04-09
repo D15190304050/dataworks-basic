@@ -4,6 +4,7 @@ import stark.dataworks.basic.IComparer;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.StringJoiner;
 
 public class Collections
 {
@@ -116,5 +117,14 @@ public class Collections
     public static <T> boolean isEmpty(Iterable<T> collection)
     {
         return (collection != null) && (collection.iterator().hasNext());
+    }
+
+    public static <T> String join(Iterable<T> collection, String delimiter)
+    {
+        StringJoiner stringJoiner = new StringJoiner(",");
+        for (T value : collection)
+            stringJoiner.add(String.valueOf(value));
+
+        return stringJoiner.toString();
     }
 }
