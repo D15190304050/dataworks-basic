@@ -138,6 +138,15 @@ public class Collections
         return longList;
     }
 
+    public static java.util.List<Long> parseLongList(String[] collection)
+    {
+        java.util.List<Long> longList = new ArrayList<>();
+        for (String s : collection)
+            longList.add(Long.parseLong(s));
+
+        return longList;
+    }
+
     public static java.util.List<Integer> parseIntList(Iterable<String> collection)
     {
         java.util.List<Integer> longList = new ArrayList<>();
@@ -147,7 +156,25 @@ public class Collections
         return longList;
     }
 
+    public static java.util.List<Integer> parseIntList(String[] collection)
+    {
+        java.util.List<Integer> longList = new ArrayList<>();
+        for (String s : collection)
+            longList.add(Integer.parseInt(s));
+
+        return longList;
+    }
+
     public static java.util.List<Double> parseDoubleList(Iterable<String> collection)
+    {
+        java.util.List<Double> longList = new ArrayList<>();
+        for (String s : collection)
+            longList.add(Double.parseDouble(s));
+
+        return longList;
+    }
+
+    public static java.util.List<Double> parseDoubleList(String[] collection)
     {
         java.util.List<Double> longList = new ArrayList<>();
         for (String s : collection)
