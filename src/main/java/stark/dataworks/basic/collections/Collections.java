@@ -2,6 +2,7 @@ package stark.dataworks.basic.collections;
 
 import stark.dataworks.basic.IComparer;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringJoiner;
@@ -126,5 +127,32 @@ public class Collections
             stringJoiner.add(String.valueOf(value));
 
         return stringJoiner.toString();
+    }
+
+    public static java.util.List<Long> parseLongList(Iterable<String> collection)
+    {
+        java.util.List<Long> longList = new ArrayList<>();
+        for (String s : collection)
+            longList.add(Long.parseLong(s));
+
+        return longList;
+    }
+
+    public static java.util.List<Integer> parseIntList(Iterable<String> collection)
+    {
+        java.util.List<Integer> longList = new ArrayList<>();
+        for (String s : collection)
+            longList.add(Integer.parseInt(s));
+
+        return longList;
+    }
+
+    public static java.util.List<Double> parseDoubleList(Iterable<String> collection)
+    {
+        java.util.List<Double> longList = new ArrayList<>();
+        for (String s : collection)
+            longList.add(Double.parseDouble(s));
+
+        return longList;
     }
 }
