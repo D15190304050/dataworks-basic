@@ -4,6 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 public class JsonSerializer
 {
     private JsonSerializer()
@@ -49,5 +54,17 @@ public class JsonSerializer
     public static <T> T deserialize(JsonNode jsonNode, Class<T> clazz)
     {
         return MAPPER.convertValue(jsonNode, clazz);
+    }
+
+    public static <T> T deserialize(InputStream inputStream, Class<T> clazz)
+    {
+        try
+        {
+            return MAPPER.readValue(inputStream, clazz);
+        }
+        catch (IOException e)
+        {
+            return null;
+        }
     }
 }
