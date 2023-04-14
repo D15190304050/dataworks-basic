@@ -1,11 +1,14 @@
 package stark.dataworks.basic.data.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,26 +19,25 @@ public class JsonSerializer
     }
 
     private static final ObjectMapper MAPPER;
+    private static final TypeFactory TYPE_FACTORY;
 
     static
     {
         MAPPER = new ObjectMapper();
+        TYPE_FACTORY = MAPPER.getTypeFactory();
     }
 
     public static String serialize(Object object)
     {
-        String result = null;
-
         try
         {
-            result = MAPPER.writeValueAsString(object);
+            return MAPPER.writeValueAsString(object);
         }
         catch (JsonProcessingException e)
         {
 //            e.printStackTrace();
+            return null;
         }
-
-        return result;
     }
 
     public static <T> T deserialize(String value, Class<T> clazz)
@@ -61,6 +63,18 @@ public class JsonSerializer
         try
         {
             return MAPPER.readValue(inputStream, clazz);
+        }
+        catch (IOException e)
+        {
+            return null;
+        }
+    }
+
+    public static <T> List<T> deserializeList(String value, Class<T> clazz)
+    {
+        try
+        {
+            return MAPPER.readValue(value, TYPE_FACTORY.constructParametricType(List.class, clazz));
         }
         catch (IOException e)
         {
