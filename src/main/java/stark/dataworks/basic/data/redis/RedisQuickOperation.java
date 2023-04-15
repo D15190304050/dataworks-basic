@@ -29,10 +29,10 @@ public class RedisQuickOperation
         redisTemplate.opsForValue().set(key, value);
     }
 
-    public <T> void set(String key, List<T> list)
+    public void set(String key, Object value)
     {
-        String listJson = JsonSerializer.serialize(list);
-        set(key, listJson);
+        String valueJson = JsonSerializer.serialize(value);
+        set(key, valueJson);
     }
 
     public <T> List<T> getList(String key, Class<T> clazz)
