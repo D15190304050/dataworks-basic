@@ -19,6 +19,12 @@ public class RedisQuickOperation
         return redisTemplate.opsForValue().get(key);
     }
 
+    public <T> T get(String key, Class<T> clazz)
+    {
+        String value = get(key);
+        return JsonSerializer.deserialize(value, clazz);
+    }
+
     public boolean delete(String key)
     {
         return Boolean.TRUE.equals(redisTemplate.delete(key));
