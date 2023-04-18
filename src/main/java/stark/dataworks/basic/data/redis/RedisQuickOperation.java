@@ -4,6 +4,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import stark.dataworks.basic.data.json.JsonSerializer;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class RedisQuickOperation
 {
@@ -45,5 +46,16 @@ public class RedisQuickOperation
     {
         String listJson = redisTemplate.opsForValue().get(key);
         return JsonSerializer.deserializeList(listJson, clazz);
+    }
+
+    public void set(String key, String value, long timeoutInMilliseconds)
+    {
+        redisTemplate.opsForValue().set(key, value, timeoutInMilliseconds, TimeUnit.MILLISECONDS);
+    }
+
+    public void set(String key, Object value, long timeoutInMilliseconds)
+    {
+        String valueJson = JsonSerializer.serialize(value);
+        set(key, valueJson, timeoutInMilliseconds);
     }
 }
