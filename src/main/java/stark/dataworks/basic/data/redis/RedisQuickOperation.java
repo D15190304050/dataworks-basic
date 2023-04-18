@@ -53,9 +53,20 @@ public class RedisQuickOperation
         redisTemplate.opsForValue().set(key, value, timeoutInMilliseconds, TimeUnit.MILLISECONDS);
     }
 
+    public void set(String key, String value, long timeout, TimeUnit timeUnit)
+    {
+        redisTemplate.opsForValue().set(key, value, timeout, timeUnit);
+    }
+
     public void set(String key, Object value, long timeoutInMilliseconds)
     {
         String valueJson = JsonSerializer.serialize(value);
         set(key, valueJson, timeoutInMilliseconds);
+    }
+
+    public void set(String key, Object value, long timeout, TimeUnit timeUnit)
+    {
+        String valueJson = JsonSerializer.serialize(value);
+        set(key, valueJson, timeout, timeUnit);
     }
 }
