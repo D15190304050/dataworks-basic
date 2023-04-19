@@ -2,6 +2,7 @@ package stark.dataworks.basic.data.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -24,6 +25,8 @@ public class JsonSerializer
     static
     {
         MAPPER = new ObjectMapper();
+        MAPPER.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+
         TYPE_FACTORY = MAPPER.getTypeFactory();
     }
 
