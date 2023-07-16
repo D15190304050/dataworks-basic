@@ -1,4 +1,4 @@
-package stark.dataworks.basic.bean;
+package stark.dataworks.basic.beans;
 
 import stark.dataworks.basic.params.ArgumentValidator;
 

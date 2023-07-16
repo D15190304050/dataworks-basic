@@ -32,7 +32,7 @@ public class QuadraticEquationSolver
 
     /**
      * Result of the equation.
-     * Note: the result is a {@link String} so that it can represents various conditions, such as the equation has no
+     * Note: the result is a {@link String} so that it can represent various conditions, such as the equation has no
      * root, or have 2 complex root, which can not be represented by a <tt>double</tt>.
      */
     private String result;

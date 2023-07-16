@@ -38,6 +38,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
         </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.79.Final</version>
+        </dependency>
     </dependencies>
 
     <licenses>

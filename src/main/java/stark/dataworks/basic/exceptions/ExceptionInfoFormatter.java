@@ -1,4 +1,4 @@
-package stark.dataworks.basic;
+package stark.dataworks.basic.exceptions;
 
 import java.util.Arrays;
 
