@@ -22,7 +22,7 @@ public class JsonMessage
      */
     private String type;
 
-    public static JsonMessage toExecutorMessage(Object message)
+    public static JsonMessage toJsonMessage(Object message)
     {
         JsonMessage executorMessage = new JsonMessage();
         executorMessage.setMessage(message);
