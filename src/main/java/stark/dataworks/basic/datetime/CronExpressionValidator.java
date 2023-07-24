@@ -18,7 +18,7 @@ public class CronExpressionValidator
         CRON_EXPRESSION_PREDICATE = Pattern.compile(CRON_EXPRESSION_PATTERN).asPredicate();
     }
 
-    public static boolean validate(String cron)
+    public static boolean isValid(String cron)
     {
         if (StringUtils.hasText(cron))
             return CRON_EXPRESSION_PREDICATE.test(cron);
