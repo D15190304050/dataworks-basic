@@ -16,7 +16,8 @@ public class FieldExtractor
     {
         ArgumentValidator.requireNonNull(fieldName, "fieldName");
         ArgumentValidator.requireNonNull(sourceList, "sourceList");
-        if (sourceList.size() <= 0)
+
+        if (sourceList.isEmpty())
             throw new IllegalArgumentException("Size of \"sourceList\" must be greater than 0.");
 
         TSource firstElement = sourceList.get(0);
@@ -39,6 +40,6 @@ public class FieldExtractor
 
     public static <TSource> List<Long> extractIds(List<TSource> sourceList) throws NoSuchFieldException, IllegalAccessException
     {
-        return extractField(sourceList, "ids");
+        return extractField(sourceList, "id");
     }
 }
