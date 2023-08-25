@@ -29,13 +29,13 @@ public class ZkQuickOperation
         return null != stat;
     }
 
-    public void tryCreateNode(String path, String data) throws Exception
+    public void tryCreateNode(String path, String data, CreateMode mode) throws Exception
     {
         if (!nodeExists(path))
         {
             zkClient.create()
                 .creatingParentsIfNeeded()
-                .withMode(CreateMode.EPHEMERAL)
+                .withMode(mode)
                 .forPath(path, data.getBytes(StandardCharsets.UTF_8));
         }
     }

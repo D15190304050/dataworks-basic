@@ -30,4 +30,10 @@ public class JsonMessage
         jsonMessage.setType(body.getClass().getName());
         return jsonMessage;
     }
+
+    public Object deserializeBody() throws ClassNotFoundException
+    {
+        Class<?> clazz = Class.forName(type);
+        return JsonSerializer.deserialize(body, clazz);
+    }
 }
