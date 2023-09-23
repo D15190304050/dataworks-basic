@@ -7,6 +7,7 @@ import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 public class ZkQuickOperation
 {
@@ -119,5 +120,10 @@ public class ZkQuickOperation
         curatorCache.listenable().addListener(listener);
 
         return curatorCache;
+    }
+
+    public List<String> getChildrenNames(String parentNodePath) throws Exception
+    {
+        return zkClient.getChildren().forPath(parentNodePath);
     }
 }

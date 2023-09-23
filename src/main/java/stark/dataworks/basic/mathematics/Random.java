@@ -22,8 +22,12 @@ public class Random
      */
     public Random()
     {
-        // this is how the seed was set in Java 1.4
-        seed = System.currentTimeMillis();
+        this(System.currentTimeMillis());
+    }
+
+    public Random(long seed)
+    {
+        this.seed = seed;
         random = new java.util.Random(seed);
     }
 
