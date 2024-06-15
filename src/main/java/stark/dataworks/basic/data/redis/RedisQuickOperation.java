@@ -69,4 +69,19 @@ public class RedisQuickOperation
         String valueJson = JsonSerializer.serialize(value);
         set(key, valueJson, timeout, timeUnit);
     }
+
+    public boolean containsKey(String key)
+    {
+        return Boolean.TRUE.equals(redisTemplate.hasKey(key));
+    }
+
+    public void setAdd(String key, String... values)
+    {
+        redisTemplate.opsForSet().add(key, values);
+    }
+
+    public boolean setContains(String key, String value)
+    {
+        return Boolean.TRUE.equals(redisTemplate.opsForSet().isMember(key, value));
+    }
 }

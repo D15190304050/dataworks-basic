@@ -32,7 +32,7 @@ public class Mathematics
     public static double max(double... array)
     {
         if (array.length == 0)
-        throw new IllegalArgumentException("The number of arguments for this method should be at least 1.");
+            throw new IllegalArgumentException("The number of arguments for this method should be at least 1.");
 
         double max = array[0];
         for (int i = 1; i < array.length; i++)
