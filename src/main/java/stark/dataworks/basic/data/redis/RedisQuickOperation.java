@@ -4,6 +4,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import stark.dataworks.basic.data.json.JsonSerializer;
 
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 public class RedisQuickOperation
@@ -83,5 +84,20 @@ public class RedisQuickOperation
     public boolean setContains(String key, String value)
     {
         return Boolean.TRUE.equals(redisTemplate.opsForSet().isMember(key, value));
+    }
+
+    public boolean expire(String key, long timeout, TimeUnit timeUnit)
+    {
+        return Boolean.TRUE.equals(redisTemplate.expire(key, timeout, timeUnit));
+    }
+
+    public Long setCount(String key)
+    {
+        return redisTemplate.opsForSet().size(key);
+    }
+
+    public Set<String> setGetAll(String key)
+    {
+        return redisTemplate.opsForSet().members(key);
     }
 }
