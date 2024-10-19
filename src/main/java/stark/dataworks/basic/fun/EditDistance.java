@@ -2,8 +2,8 @@ package stark.dataworks.basic.fun;
 
 /**
  * References:
- * [1] https://www.jianshu.com/p/a617d20162cf
- * [2] https://blog.csdn.net/tianjindong0804/article/details/115803158
+ * [1] <a href="https://www.jianshu.com/p/a617d20162cf">Reference 1</a>
+ * [2] <a href="https://blog.csdn.net/tianjindong0804/article/details/115803158">Reference 2</a>
  */
 public class EditDistance
 {
