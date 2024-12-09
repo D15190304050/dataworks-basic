@@ -100,7 +100,7 @@ public final class DirectoryInfo implements Serializable
     }
 
     /**
-     * Gets the parent directory of a specified sub-directory.
+     * Gets the parent directory of a specified subdirectory.
      * @return The parent directory, or null if the path is null or if the directory path denotes a root (such as "\",
      * "C"", or "\\server\\share").
      * @exception SecurityException The caller does not have the required permission.

@@ -29,9 +29,7 @@ public class FieldExtractor
         while (clazz != null)
         {
             Field[] declaredFields = clazz.getDeclaredFields();
-
             fields.addAll(Arrays.asList(declaredFields));
-
             clazz = clazz.getSuperclass();
         }
 
