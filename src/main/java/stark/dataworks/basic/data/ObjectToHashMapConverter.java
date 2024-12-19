@@ -18,6 +18,9 @@ public final class ObjectToHashMapConverter
             return null;
 
         Class<?> clazz = object.getClass();
+        if (isPrimitiveOrWrapper(clazz))
+            throw new IllegalArgumentException("Cannot convert primitive or wrapper type " + clazz.getName() + " to HashMap.");
+
         HashMap<String, Object> map = new HashMap<>();
 
         List<Field> fields = FieldExtractor.getAllFields(clazz);
