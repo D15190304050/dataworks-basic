@@ -14,7 +14,7 @@ public class ObjectToHashMapConverterTest extends TestCase
         Address address = new Address("123 Street", "City", "12345");
         Person person = new Person("John Doe", 30, address);
 
-        HashMap<Object, Object> personMap = ObjectToHashMapConverter.convertObjectToHashMap(person);
+        HashMap<String, Object> personMap = ObjectToHashMapConverter.convertObjectToHashMap(person);
         System.out.println(personMap);
     }
 }

@@ -12,13 +12,13 @@ public final class ObjectToHashMapConverter
     {
     }
 
-    public static HashMap<Object, Object> convertObjectToHashMap(Object object)
+    public static HashMap<String, Object> convertObjectToHashMap(Object object)
     {
         if (object == null)
             return null;
 
         Class<?> clazz = object.getClass();
-        HashMap<Object, Object> map = new HashMap<>();
+        HashMap<String, Object> map = new HashMap<>();
 
         List<Field> fields = FieldExtractor.getAllFields(clazz);
         for (Field field : fields)
